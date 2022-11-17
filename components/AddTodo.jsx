@@ -9,9 +9,11 @@ import {
   useToast,
   InputGroup,
   InputLeftAddon,
+  SimpleGrid,
 } from "@chakra-ui/react";
 import useAuth from "../hooks/useAuth";
 import { addTodo } from "../api/todo";
+import { IoIosArrowRoundForward } from "react-icons/io";
 const AddTodo = () => {
   const [legajo, setLegajo] = React.useState("");
   const [fullName, setFullname] = React.useState("");
@@ -69,7 +71,7 @@ const AddTodo = () => {
           onChange={(e) => setEmail(e.target.value)}
         />
 
-       {/* <Select value={status} onChange={(e) => setStatus(e.target.value)}>
+        {/* <Select value={status} onChange={(e) => setStatus(e.target.value)}>
           <option
             value={"pending"}
             style={{ color: "yellow", fontWeight: "bold" }}
@@ -83,13 +85,21 @@ const AddTodo = () => {
             Completed ✅
           </option>
         </Select>*/}
-        <Button
+        <SimpleGrid columns={2} spacing={5}>
+          <Box bg='tomato' height='80px'></Box>
+          <Box bg='tomato' height='80px'></Box>
+          <Box bg='tomato' height='80px'></Box>
+          <Box bg='tomato' height='80px'></Box>
+          <Box bg='tomato' height='80px'></Box>
+          <Box bg='tomato' height='80px'></Box>
+        </SimpleGrid>
+        <Button rightIcon={<IoIosArrowRoundForward style={{ fontSize: '25px' }} />} colorScheme='teal' variant='outline'
           onClick={() => handleTodoCreate()}
           disabled={legajo.length < 1 || fullName.length < 1 || email.length < 1 || isLoading}
-          //variantColor="teal"
-          variant="outline"
+        //variantColor="teal"
+
         >
-          Votar!
+          Votar
         </Button>
       </Stack>
     </Box>
